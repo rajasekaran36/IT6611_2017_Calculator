@@ -17,6 +17,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
 	TextView output;
 	String text_to_display = "";
 	String s_number = "";
+	double number_1 = 0;
+	double number_2 = 0;
+	int op_code = 0;
+	double ans = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
         n7.setOnClickListener(this);
         n8.setOnClickListener(this);
         n9.setOnClickListener(this);
+        
+        op_plus.setOnClickListener(this);
+        op_equls.setOnClickListener(this);
+        op_minus.setOnClickListener(this);
+        op_multiply.setOnClickListener(this);
+        op_divide.setOnClickListener(this);
         
         
 }
@@ -100,7 +110,51 @@ public class MainActivity extends Activity implements View.OnClickListener{
 			s_number = s_number + "9";
 			upDateDisplay(s_number);
 			break;
-		
+		case R.id.op_plus:
+			number_1 = Double.parseDouble(s_number);
+			s_number = "";
+			op_code = 1;
+			upDateDisplay("");
+			break;
+		case R.id.op_minus:
+			number_1 = Double.parseDouble(s_number);
+			s_number = "";
+			op_code = 2;
+			upDateDisplay("");
+			break;
+		case R.id.op_multiply:
+			number_1 = Double.parseDouble(s_number);
+			s_number = "";
+			op_code = 3;
+			upDateDisplay("");
+			break;
+		case R.id.op_divide:
+			number_1 = Double.parseDouble(s_number);
+			s_number = "";
+			op_code = 4;
+			upDateDisplay("");
+			break;
+		case R.id.op_equals:
+			number_2 = Double.parseDouble(s_number);
+			s_number = "";
+			switch (op_code){
+			case 1:
+				ans = number_1 + number_2;
+				upDateDisplay(String.valueOf(ans));
+				break;
+			case 2:
+				ans = number_1 - number_2;
+				upDateDisplay(String.valueOf(ans));
+				break;
+			case 3:
+				ans = number_1 * number_2;
+				upDateDisplay(String.valueOf(ans));
+				break;
+			case 4:
+				ans = number_1 / number_2;
+				upDateDisplay(String.valueOf(ans));
+				break;
+			}
 		}
 	}
 	
