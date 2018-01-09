@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity implements View.OnClickListener{
@@ -63,6 +65,15 @@ public class MainActivity extends Activity implements View.OnClickListener{
         op_minus.setOnClickListener(this);
         op_multiply.setOnClickListener(this);
         op_divide.setOnClickListener(this);
+        
+        output.setOnTouchListener(new View.OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View arg0, MotionEvent arg1) {
+				Toast.makeText(getApplicationContext(), "Touched", Toast.LENGTH_LONG).show();		
+				return false;
+			}
+		});
         
         
 }
