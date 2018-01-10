@@ -121,21 +121,28 @@ public class MainActivity extends Activity implements View.OnClickListener{
 			s_number = s_number + "9";
 			upDateDisplay(s_number);
 			break;
+		case R.id.op_point:
+			s_number = s_number + ".";
+			op_point.setEnabled(false);
+			break;
 		case R.id.op_plus:
 			number_1 = Double.parseDouble(s_number);
 			s_number = "";
 			op_code = 1;
+			op_point.setEnabled(true);
 			upDateDisplay("");
 			break;
 		case R.id.op_minus:
 			number_1 = Double.parseDouble(s_number);
 			s_number = "";
 			op_code = 2;
+			op_point.setEnabled(true);
 			upDateDisplay("");
 			break;
 		case R.id.op_multiply:
 			number_1 = Double.parseDouble(s_number);
 			s_number = "";
+			op_point.setEnabled(true);
 			op_code = 3;
 			upDateDisplay("");
 			break;
@@ -143,11 +150,14 @@ public class MainActivity extends Activity implements View.OnClickListener{
 			number_1 = Double.parseDouble(s_number);
 			s_number = "";
 			op_code = 4;
+			op_point.setEnabled(true);
 			upDateDisplay("");
 			break;
+		
 		case R.id.op_equals:
 			number_2 = Double.parseDouble(s_number);
 			s_number = "";
+			op_point.setEnabled(true);
 			switch (op_code){
 			case 1:
 				ans = number_1 + number_2;
