@@ -65,6 +65,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         op_minus.setOnClickListener(this);
         op_multiply.setOnClickListener(this);
         op_divide.setOnClickListener(this);
+        op_point.setOnClickListener(this);
         
         output.setOnTouchListener(new View.OnTouchListener() {
 			
@@ -124,6 +125,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 		case R.id.op_point:
 			s_number = s_number + ".";
 			op_point.setEnabled(false);
+			upDateDisplay(s_number);
 			break;
 		case R.id.op_plus:
 			number_1 = Double.parseDouble(s_number);
